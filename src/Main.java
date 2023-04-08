@@ -156,6 +156,10 @@ public class Main extends GLJPanel implements GLEventListener, KeyListener {
         translateY = Math.min(maxTranslate, Math.max(minTranslate, translateY));
         translateZ = Math.min(maxTranslateZ, Math.max(minTranslateZ, translateZ));
 
+        // Bound scale to the window size
+        double maxScale = Math.min(640.0 / getWidth(), 480.0 / getHeight());
+        scale = Math.max(0.1, Math.min(maxScale, scale));
+
         // Ensure that rotateX, rotateY, and rotateZ are in the range of 0 to 360 degrees
         while (rotateX >= 360) {
             rotateX -= 360;
@@ -191,7 +195,7 @@ public class Main extends GLJPanel implements GLEventListener, KeyListener {
         drawShape(gl2, ThreeDimensionalShapes.PYRAMID, 0.125, -1.5, 1.5, 1.5);
 
         // Update the label with the current values
-        label.setText(String.format("<html><center>Scale: %.2f &emsp; Rotation: (%.2f, %.2f, %.2f) &emsp; Translation: (%.2f, %.2f, %.2f)<html><center>", scale, rotateX, rotateY, rotateZ, translateX, translateY, translateZ));
+        label.setText(String.format("<html><center>Rotation: (%.2f, %.2f, %.2f) &emsp; Translation: (%.2f, %.2f, %.2f) &emsp; Scale: %.2f<html><center>", rotateX, rotateY, rotateZ, translateX, translateY, translateZ, scale));
 
         gl2.glFlush();
     }
