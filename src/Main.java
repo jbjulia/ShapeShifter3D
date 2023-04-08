@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
  * Filename: Main.java
  * Author: Joseph Julian
  * Date: 02 April 2023
- * Description: Draws five (5) 3D shapes into the scene using the data from the ThreeDimensionalShapes class.
+ * Description: Draws six (6) 3D shapes into the scene using the data from the ThreeDimensionalShapes class.
  */
 public class Main extends GLJPanel implements GLEventListener, KeyListener {
 
